@@ -14,7 +14,7 @@ import org.neo4j.ogm.annotation.Property;
 
 @Getter
 @Setter
-@NodeEntity(label="ALabel")
+@NodeEntity(label="BLabel")
 public class PersonNode {
 
     @Id

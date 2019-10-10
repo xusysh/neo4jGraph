@@ -4,11 +4,9 @@ package com.graphdatabase.service;
  * Created by twinkleStar on 2019/10/10.
  */
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.graphdatabase.entity.nodeEntity.PersonNode2;
 import com.graphdatabase.entity.relationEntity.PersonRelation;
 import com.graphdatabase.repository.relationRepository.PersonRelationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +36,7 @@ public class PersonNeo4jService {
     }
 
     public List<PersonRelation> getPersonRelationList() {
-        List<PersonRelation> personRelations=personRelationRepository.findRelationTest();
+        List<PersonRelation> personRelations=personRelationRepository.findRelationTest("Cccounting");
         return personRelations;
     }
 

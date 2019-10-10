@@ -28,7 +28,7 @@ public class PersonRelation {
     private String date;
 
     @Property(name = "price")
-    private String price;
+    private Long price;
 
 
 }

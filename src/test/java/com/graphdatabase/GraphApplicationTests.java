@@ -1,36 +1,148 @@
 package com.graphdatabase;
 
+import com.graphdatabase.entity.nodeEntity.StudentNode;
+import com.graphdatabase.entity.relationEntity.FriendshipRelation;
+import com.graphdatabase.repository.nodeRepository.StudentRepository;
+import com.graphdatabase.service.Neo4jServiceImpl;
 import com.graphdatabase.service.PersonNeo4jService;
+import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.awt.print.Pageable;
+import java.util.ArrayList;
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class GraphApplicationTests {
+
+
 	@Autowired
-	PersonNeo4jService neo4jService;
+	private StudentRepository studentRepository;
 
+	@Autowired
+	private Neo4jServiceImpl neo4jService;
+
+	/**
+	 * 保存单个节点
+	 */
 	@Test
-	public void contextLoads() {
+	public void saveStudentNode(){
+		StudentNode studentNode = new StudentNode();
+		studentNode.setName("张0");
+		studentRepository.save(studentNode);
+	}
 
-//
-//			int i = 0;
-//			do {
-//				UserNode user = new UserNode();
-//				user.setAge(RandomUtils.nextInt(15, 40));
-//				user.setName("Fredia" + RandomUtils.nextInt(1, 1000));
-//				user.setUserId(UUID.randomUUID().toString());
-//				user.setNodeId(RandomUtils.nextLong(1L, 999L));
-//				neo4jService.addUser(user);
-//				i += 1;
-//			} while (i < 400);
-//
-//		List<UserNode> userNodes=neo4jService.getUserNodeList();
-//		System.out.print(userNodes);
+	/**
+	 * 通过name查询学生节点
+	 */
+	@Test
+	public void findStudentNodeByName(){
+		StudentNode studentNode = studentRepository.findByName("张0");
+		System.out.println(studentNode);
+	}
 
+	/**
+	 * 保存批量节点
+	 */
+	@Test
+	public void saveAllStudentNode(){
+		List<StudentNode> studentNodeList = new ArrayList<>();
+		StudentNode studentNode;
+		for(int i = 1; i <= 10; i++){
+			studentNode = new StudentNode();
+			studentNode.setName("张" + i);
+			studentNodeList.add(studentNode);
+		}
+		studentRepository.saveAll(studentNodeList);
+	}
+
+	/**
+	 * 查询全部
+	 */
+	@Test
+	public void findAll(){
+		//iterable to list
+		List<StudentNode> studentNodeList = Lists.newArrayList(studentRepository.findAll());
+		System.out.println(studentNodeList);
+	}
+
+	/**
+	 * 分页查询
+	 */
+//	@Test
+//	public void pageFindAll(){
+//		Pageable pageable = PageRequest.of(0,2);
+//		Page<StudentNode> studentNodePage = studentRepository.findAll(pageable);
+//		System.out.println("");
+//	}
+
+	/**
+	 * 保存如下友谊关系
+	 *
+	 * 1 <-> 2 <-> 5 -> 9
+	 *          -> 6
+	 *    -> 3 <-> 7 -> 10
+	 *    -> 4 <-> 8
+	 */
+	@Test
+	public void saveFriendship(){
+		neo4jService.saveFriendship("张1","张2");
+		neo4jService.saveFriendship("张1","张3");
+		neo4jService.saveFriendship("张1","张4");
+
+		neo4jService.saveFriendship("张2","张1");
+		neo4jService.saveFriendship("张2","张5");
+		neo4jService.saveFriendship("张2","张6");
+
+		neo4jService.saveFriendship("张3","张7");
+
+		neo4jService.saveFriendship("张4","张8");
+
+		neo4jService.saveFriendship("张5","张2");
+		neo4jService.saveFriendship("张5","张9");
+
+		neo4jService.saveFriendship("张7","张3");
+		neo4jService.saveFriendship("张7","张10");
+
+		neo4jService.saveFriendship("张8","张4");
+	}
+
+	/**
+	 * 根据name查询 both 友谊关系
+	 */
+	@Test
+	public void getBothFriendship(){
+		List<FriendshipRelation> friendshipRelationList1 = studentRepository.bothFriendship("张1");
+
+	}
+
+	/**
+	 * 根据name查询 in 友谊关系
+	 */
+	@Test
+	public void getInFriendship(){
+		List<FriendshipRelation> friendshipRelationList1 = studentRepository.inFriendship("张1");
+	}
+
+	/**
+	 * 根据name查询 out 友谊关系
+	 */
+	@Test
+	public void getOutFriendship(){
+		List<FriendshipRelation> friendshipRelationList1 = studentRepository.outFriendship("张1");
+	}
+
+	/**
+	 * 删除 1 -> 3 友谊关系
+	 */
+	@Test
+	public void deleteFriendship(){
+		neo4jService.deleteFriendship("张1","张3");
 	}
 
 }

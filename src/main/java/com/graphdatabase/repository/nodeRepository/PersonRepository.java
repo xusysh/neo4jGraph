@@ -1,11 +1,9 @@
 package com.graphdatabase.repository.nodeRepository;
 
 import com.graphdatabase.entity.nodeEntity.PersonNode;
-import com.graphdatabase.entity.nodeEntity.PersonNode2;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,7 +28,7 @@ public interface PersonRepository extends Neo4jRepository<PersonNode,Long> {
 //    List<Map<String,Object>> findResult();
 
 
-    @Query("MATCH (node1:ALabel),(node2:BLabel) RETURN node1,node2")
+    @Query("MATCH (node1:BLabel) RETURN node1")
     List<PersonNode> findNodeTest();
 
 

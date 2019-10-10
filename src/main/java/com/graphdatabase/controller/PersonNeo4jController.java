@@ -6,13 +6,10 @@ package com.graphdatabase.controller;
 
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import com.graphdatabase.entity.nodeEntity.PersonNode;
-import com.graphdatabase.entity.nodeEntity.PersonNode2;
 import com.graphdatabase.entity.relationEntity.PersonRelation;
 import com.graphdatabase.service.PersonNeo4jService;
-import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
