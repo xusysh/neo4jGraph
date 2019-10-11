@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Repository
-public class Neo4jServiceImpl {
+public class StudentServiceImpl {
 
     @Autowired
     private StudentRepository studentRepository;

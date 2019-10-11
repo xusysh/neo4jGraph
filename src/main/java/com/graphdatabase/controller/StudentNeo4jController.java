@@ -4,11 +4,9 @@ package com.graphdatabase.controller;
  * Created by twinkleStar on 2019/10/10.
  */
 
-import com.graphdatabase.entity.nodeEntity.PersonNode;
 import com.graphdatabase.entity.relationEntity.FriendshipRelation;
-import com.graphdatabase.entity.relationEntity.PersonRelation;
 import com.graphdatabase.repository.nodeRepository.StudentRepository;
-import com.graphdatabase.service.Neo4jServiceImpl;
+import com.graphdatabase.service.StudentServiceImpl;
 import com.graphdatabase.service.PersonNeo4jService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/student")
@@ -29,7 +26,7 @@ public class StudentNeo4jController {
     private StudentRepository studentRepository;
 
     @Autowired
-    private Neo4jServiceImpl neo4jService;
+    private StudentServiceImpl neo4jService;
 
 
     @GetMapping("/both")

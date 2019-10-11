@@ -3,8 +3,7 @@ package com.graphdatabase;
 import com.graphdatabase.entity.nodeEntity.StudentNode;
 import com.graphdatabase.entity.relationEntity.FriendshipRelation;
 import com.graphdatabase.repository.nodeRepository.StudentRepository;
-import com.graphdatabase.service.Neo4jServiceImpl;
-import com.graphdatabase.service.PersonNeo4jService;
+import com.graphdatabase.service.StudentServiceImpl;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class GraphApplicationTests {
 	private StudentRepository studentRepository;
 
 	@Autowired
-	private Neo4jServiceImpl neo4jService;
+	private StudentServiceImpl neo4jService;
 
 	/**
 	 * 保存单个节点
