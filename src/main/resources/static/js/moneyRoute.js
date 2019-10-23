@@ -139,7 +139,7 @@ $(function(){
 
         title: {
             text: '资金流转关系图',
-            subtext: 'Default layout',
+            subtext: '资金流转链',
             top: 'top',
             left: 'left'
         },
