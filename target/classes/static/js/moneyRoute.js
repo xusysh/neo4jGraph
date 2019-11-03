@@ -24,7 +24,7 @@ $(function(){
             contentType: "application/json; charset=UTF-8",
             dataType: "json",
             success: function (data) {
-                console.log(data);
+                //console.log(data);
 
                 companyNode=data.companyNode;
                 memberNode=data.memberNode;
@@ -118,7 +118,27 @@ $(function(){
                 des: memberToMember[i].num
             };
             linkNum++;
+
+
+            /**
+             * 伪造的数据，测试多关系
+             * 这里需要改echarts源码才能生效
+             * 参考链接：https://blog.csdn.net/Fimooo/article/details/102853093
+             * @type {{source: *, target: *, name: number, des: *, lineStyle: {color: string, curveness: number}}}
+             */
+            link_array[linkNum]={
+                source: memberToMember[i].startNode.name,
+                target: memberToMember[i].endNode.name,
+                name: 6000+linkNum,
+                des: memberToMember[i].num,
+                lineStyle: {
+                    color: 'red',
+                    curveness: -0.3
+                }
+            };
+            linkNum++;
         }
+        console.log(link_array);
         myChart.setOption(option);
     });
 
@@ -241,6 +261,16 @@ $(function(){
         }]
     };
 
+    myChart.on('click', {dataType: 'node'}, function (param) {
+        console.log("-----node-----");
+        console.log(param.data);
+    });
+
+    myChart.on('click', {dataType: 'edge'}, function (param) {
+        // 关系图的边被点击时此方法被回调。
+        console.log("-----edge-----");
+        console.log(param.data);
+    });
 
 });
 
