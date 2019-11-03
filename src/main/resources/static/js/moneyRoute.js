@@ -241,6 +241,12 @@ $(function(){
         }]
     };
 
+    myChart.on('click', {dataType: 'node'}, function (data) {
+        console.log("dfs33");
+        console.log(value);
+
+    });
+
 
 });
 
