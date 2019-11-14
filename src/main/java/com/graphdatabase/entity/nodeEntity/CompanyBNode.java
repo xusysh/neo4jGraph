@@ -11,10 +11,12 @@ import org.neo4j.ogm.annotation.Property;
  * Created by twinkleStar on 2019/10/11.
  */
 
+
+//关系链B节点
 @Getter
 @Setter
 @NodeEntity(label="Institute")
-public class CompanyNode {
+public class CompanyBNode {
 
     @Id
     @GeneratedValue
@@ -24,17 +26,6 @@ public class CompanyNode {
     @Property(name = "cname")
     private String cname;
 
-    //开户机构（支行）
-    @Property(name = "openBranch")
-    private String openBranch;
-
-    //存量客户所属上级机构（分行）
-    @Property(name = "thirdBranch")
-    private String thirdBranch;
-
-    //存量客户所属二级分行
-    @Property(name = "secondBranch")
-    private String secondBranch;
 
     //存量客户管护权客户经理
     @Property(name = "custManagerName")
@@ -44,7 +35,7 @@ public class CompanyNode {
     @Property(name = "custManagerTel")
     private String custManagerTel;
 
-    //是否在我行开户，1为我行客户，2为他行客户
+    //=2，为他行客户
     @Property(name = "category")
     private int category;
 
@@ -83,9 +74,6 @@ public class CompanyNode {
     //是否水电等供应链关系
     @Property(name = "isSupply")
     private int isSupply;
-
-
-
 
 
 }

@@ -12,8 +12,8 @@ import org.neo4j.ogm.annotation.*;
 
 @Setter
 @Getter
-@RelationshipEntity(type = "com_to_com")
-public class CompanyToCompany {
+@RelationshipEntity(type = "com_to_single")
+public class CompanyToPerson {
 
     @Id
     @GeneratedValue
@@ -23,7 +23,7 @@ public class CompanyToCompany {
     private CompanyNode startNode;
 
     @EndNode
-    private CompanyNode endNode;
+    private PersonNode endNode;
 
     //累计交易金额
     @Property(name = "transMoney")

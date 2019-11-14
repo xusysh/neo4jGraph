@@ -12,21 +12,24 @@ import org.neo4j.ogm.annotation.Property;
  * Created by twinkleStar on 2019/10/10.
  */
 
+//他行私人用户
 @Getter
 @Setter
-@NodeEntity(label="BLabel")
+@NodeEntity(label="Single")
 public class PersonNode {
 
     @Id
     @GeneratedValue
     private Long Id;
 
-    @Property(name = "name")
-    private String name;
+    @Property(name = "pname")
+    private String pname;
 
-    @Property(name = "num")
-    private int num;
+    //交易对手行别
+    @Property(name = "pBankName")
+    private int pBankName;
 
-    @Property(name = "location")
-    private String location;
+    //交易对手账号
+    @Property(name = "pBankAccount")
+    private String pBankAccount;
 }

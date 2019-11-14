@@ -1,7 +1,6 @@
 package com.graphdatabase.repository.relationRepository;
 
 import com.graphdatabase.entity.nodeEntity.PersonNode;
-import com.graphdatabase.entity.relationEntity.PersonRelation;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
@@ -21,10 +20,10 @@ public interface PersonRelationRepository extends Neo4jRepository<PersonNode,Lon
 //    List<PersonRelation> findRelationTest();
 
 
-    @Query("match p=(a:BLabel) - [r:relation_test*0..] -> (b:BLabel) " +
-            "where b.name = {0}  " +
-            "return p")
-    List<PersonRelation> findRelationTest(String name);
+//    @Query("match p=(a:BLabel) - [r:relation_test*0..] -> (b:BLabel) " +
+//            "where b.name = {0}  " +
+//            "return p")
+//    List<PersonRelation> findRelationTest(String name);
 
 
 }
