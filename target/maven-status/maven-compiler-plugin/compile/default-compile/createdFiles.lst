@@ -1,0 +1,4 @@
+com\graphdatabase\GraphApplication.class
+com\graphdatabase\controller\CompanyController.class
+com\graphdatabase\model\node\PersonNode.class
+com\graphdatabase\model\relation\ComToPersonRelation.class

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资金链路</title>
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <script src="plugins/jquery-2.1.4.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"/>
+    <script src="plugins/echarts/echarts.min.js"></script>
+    <script src="js/homepage.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row" style="text-align: center;">
+                        客户关系网探索
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">是否成圈：</label>
+                                <div class="col-md-3">
+                                    <button type="button" class="form-control btn" id ="isCircle-btn">是</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="form-control btn btn-info" id ="notCircle-btn">否</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">探索方向：</label>
+                                <div class="col-md-3">
+                                    <button type="button" class="form-control btn btn-info" id ="isForward-btn">正向</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="form-control btn" id ="isBackward-btn">反向</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">时间范围：</label>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option selected class="form-control">2019年10月</option>
+                                        <option class="form-control">2019年11月</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">交易类别：</label>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option selected class="form-control">全部</option>
+                                        <option class="form-control">本行-本行</option>
+                                        <option class="form-control">本行-他行</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">交易金额>=：</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" placeholder="请输入交易金额" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">交易笔数>=：</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" placeholder="请输入交易笔数" min="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">交易笔均>=：</label>
+                                <div class="col-md-6">
+                                    <input type="number" class="form-control" placeholder="请输入交易笔均" min="0">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">探索路径层数：</label>
+                                <div class="col-md-6">
+                                    <select class="form-control">
+                                        <option selected class="form-control">1层</option>
+                                        <option class="form-control">2层</option>
+                                        <option class="form-control">3层</option>
+                                        <option class="form-control">4层</option>
+                                        <option class="form-control">5层</option>
+                                        <option class="form-control">6层</option>
+                                        <option class="form-control">7层</option>
+                                        <option class="form-control">8层</option>
+                                        <option class="form-control">9层</option>
+                                        <option class="form-control">10层</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">供应链：</label>
+                                <div class="col-md-6 checkbox">
+                                    <label><input type="checkbox" value="">？</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-5 control-label">探索路径选择：</label>
+                                <div class="col-md-6 checkbox">
+                                    <label><input type="checkbox" value="">？</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">客户名称：</label>
+
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="请输入客户名称">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="form-control">查询</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div id="main" style="width:700px; height:800px"></div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row" style="text-align: center;">
+                        相关信息
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">相关信息1</div>
+                        <div class="form-group">相关信息2：记得哈是利空打击啊SDL啊</div>
+                        <div class="form-group">相关信息1</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+</body>
+</html>
