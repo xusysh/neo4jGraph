@@ -1,16 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.graphdatabase.GraphApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 6.081 s <<< FAILURE! - in com.graphdatabase.GraphApplicationTests
-saveFriendship(com.graphdatabase.GraphApplicationTests)  Time elapsed: 0.03 s  <<< ERROR!
-org.springframework.dao.IncorrectResultSizeDataAccessException: Incorrect result size: expected at most 1
-	at com.graphdatabase.GraphApplicationTests.saveFriendship(GraphApplicationTests.java:92)
-
-deleteFriendship(com.graphdatabase.GraphApplicationTests)  Time elapsed: 0.03 s  <<< ERROR!
-org.springframework.dao.IncorrectResultSizeDataAccessException: Incorrect result size: expected at most 1
-	at com.graphdatabase.GraphApplicationTests.deleteFriendship(GraphApplicationTests.java:143)
-
-findStudentNodeByName(com.graphdatabase.GraphApplicationTests)  Time elapsed: 0.02 s  <<< ERROR!
-org.springframework.dao.IncorrectResultSizeDataAccessException: Incorrect result size: expected at most 1
-	at com.graphdatabase.GraphApplicationTests.findStudentNodeByName(GraphApplicationTests.java:43)
-
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.123 s - in com.graphdatabase.GraphApplicationTests

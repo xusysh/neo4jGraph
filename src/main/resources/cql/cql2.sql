@@ -13,7 +13,7 @@ CREATE (node:Company { name:"江苏省苏州市B教育公司",location:"江苏�
 
 MATCH (node1:Member),(node2:Member)
 where node1.name="巴卫君" and node2.name="小埋酱"
-CREATE (node1)-[r:route_mm{num:200000}]->(node2)
+CREATE (node1)<-[r:route_mm{num:200000}]-(node2)
 RETURN node1,r,node2
 
 MATCH (node1:Member),(node2:Member)

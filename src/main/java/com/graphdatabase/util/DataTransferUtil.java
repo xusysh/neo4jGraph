@@ -7,9 +7,4 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DataTransferUtil {
-
-    //CompanyToCompanyA
-    //CompanyToCompanyB
-    //CompanyBToCompany
-    //CompanyAToCompany
 }
