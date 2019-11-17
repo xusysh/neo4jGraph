@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graphdatabase.dao.PersonMapper">
+
+    <resultMap id="person_node" type="com.graphdatabase.model.node.PersonNode">
+        <id column="person_id" property="Id"/>
+        <result column="person_name" property="pname"/>
+    </resultMap>
+
+    <select id="getAllPersons" resultMap="person_node">
+		match
+          (node:Person)
+		return
+		  id(node) as person_id,node.pname as person_name
+    </select>
+
+    <select id="getPersonById" resultMap="person_node">
+        match (node{Id:${person_id}})
+        return
+        id(node) as person_id,node.pname as person_name
+    </select>
+
+    <resultMap id="path_test" type="com.graphdatabase.model.Test.Path">
+        <collection property="member1_node" ofType="com.graphdatabase.model.Test.Node">
+            <id column="id1" property="id"/>
+            <result column="name1" property="name"/>
+            <result column="age1" property="age"/>
+            <result column="othertip1" property="othertip"/>
+        </collection>
+        <collection property="member2_node" ofType="com.graphdatabase.model.Test.Node">
+            <id column="id1" property="id"/>
+            <result column="name2" property="name"/>
+            <result column="age2" property="age"/>
+            <result column="othertip2" property="othertip"/>
+        </collection>
+        <collection property="member_route" ofType="java.util.Map">
+            <result column="member_route_num" property="num"/>
+        </collection>
+    </resultMap>
+
+    <select id="getPath" resultMap="path_test">
+        match path = (node1{name:"豆豆"})-[r:route_mm*..3]->(node2)
+        unwind r as route
+        return
+        node1.name as name1,
+        node1.age as age1,
+        node1.othertip as othertip1,
+        node2.name as name2,
+        node2.age as age2,
+        node2.othertip as othertip2,
+        route.num as member_route_num
+    </select>
+
+    <!--select id="getAllPersons" resultType="com.graphdatabase.model.node.PersonNode">
+		match
+          (node:Person)
+		return
+		  id(node) as Id ,node.pname as pname
+    </select-->
+
+</mapper>
