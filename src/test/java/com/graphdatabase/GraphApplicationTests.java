@@ -21,16 +21,6 @@ public class GraphApplicationTests {
 	@Autowired
 	private CompanyMapper companyMapper;
 
-
-
-	/**
-	 * 保存如下友谊关系
-	 *
-	 * 1 <-> 2 <-> 5 -> 9
-	 *          -> 6
-	 *    -> 3 <-> 7 -> 10
-	 *    -> 4 <-> 8
-	 */
 	@Test
 	public void saveFriendship(){
 

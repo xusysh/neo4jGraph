@@ -1,4 +1,7 @@
 -------------------------------------------------------------------------------
 Test set: com.graphdatabase.GraphApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.744 s - in com.graphdatabase.GraphApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.14 s <<< FAILURE! - in com.graphdatabase.GraphApplicationTests
+initializationError(com.graphdatabase.GraphApplicationTests)  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.Exception: No runnable methods
+

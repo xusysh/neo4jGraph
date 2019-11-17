@@ -17,6 +17,7 @@ public class PersonService {
     @Autowired
     PersonMapper personMapper;
 
+
     public List<PersonNode> getAllPersons() {
         return  personMapper.getAllPersons();
     }

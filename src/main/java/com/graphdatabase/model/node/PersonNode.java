@@ -1,5 +1,6 @@
 package com.graphdatabase.model.node;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.neo4j.ogm.annotation.GeneratedValue;
